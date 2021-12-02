@@ -1,23 +1,39 @@
 import json
 from services import *
 
-createUser = input("Press 1 to Add a User, 2 to Remove a User, or 3 to view list of Users: ")
+createUser = input("Press 1 to Add a User, 2 close, or 3 to view list of Users: ")
 
-while createUser == "1":
-		name = input("What is your name: ")
-		age = input("What is your age: ")
+def input1():
+	name = input("What is your name: ")
+	age = input("What is your age: ")	
+	data = {
+		"name": name,
+		"age": age
+	}
+	write_json(data)
 
-		data = {
-			"name": name,
-			"age": age
-		}
+def input2():
+	exit('quitting')
 
-		write_json(data)
+def input3():
+	list_json()
 
-		add = input("Would you like to modify your data? Press 1 to add, 3 to list users, or 2 to close: ")	
-		
-		if add == "2":
-			break
+def main():
+	while createUser == "1":
+		input1()
+	
+	while createUser == "2":
+		input2()
 
-		if add == '3':
-			break
+	while createUser == "3":
+		input3()
+		break
+	
+	add = input("Would you like to modify your data? Press 1 to add, 3 to list users, or 2 to close: ")	
+	while add == '2':
+		input2()
+	while add == '3':
+		input3()
+		break
+	
+main()

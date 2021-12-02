@@ -13,3 +13,11 @@ def write_json(new_data, filename='./data/dict.json'):
        file.seek(0)
        # convert back to json.
        json.dump(file_data, file, indent = 4)
+
+# List JSON data in terminal
+def list_json():
+  print('test')
+  with open('./data/dict.json', 'r') as openfile:
+    json_object = json.load(openfile)
+    print('test')
+    print(json.dumps(json_object, indent=4, sort_keys=True))
