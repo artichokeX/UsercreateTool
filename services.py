@@ -2,7 +2,7 @@ import json
 
 
 
-# function to add to JSON
+# Append new data to existing JSON DB
 def write_json(new_data, filename='./data/dict.json'):
    with open(filename,'r+') as file:
          # First we load existing data into a dict.

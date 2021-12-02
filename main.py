@@ -1,5 +1,5 @@
 import json
-from func import *
+from services import *
 
 createUser = input("Press 1 to Add a User, 2 to Remove a User, or 3 to view list of Users: ")
 
