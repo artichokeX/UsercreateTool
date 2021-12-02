@@ -1,40 +1,27 @@
-import json
 from services import *
+from api import *
+from os.path import exists
 
-createUser = input("Press 1 to Add a User, 2 close, or 3 to view list of Users: ")
 
-def input1():
-	name = input("What is your name: ")
-	age = input("What is your age: ")	
-	data = {
-		"name": name,
-		"age": age
-	}
-	write_json(data)
+if not (exists('./data/dict.json')):
+	open('./data/dict.json', 'w').write('[]')
 
-def input2():
-	exit('quitting')
 
-def input3():
-	list_json()
+print(
+	'Enter one of the following commands...\n 1 = Add new user \n 2 = Quit the program \n 3 = List users \n d = Delete a user')
+createUser = input("Command: ")
+
+# check if dict.json exists
+# if it doesn't then create file
 
 def main():
-	if createUser == "1":
-		input1()
-	
-	elif createUser == "2":
-		input2()
-
-	elif createUser == "3":
-		input3()
+	inputData(createUser)
 
 	while createUser:
-		add = input("Would you like to modify your data? Press 1 to add, 3 to list users, or 2 to close: ")	
-		if add == '1':
-			input1()
-		if add == '2':
-			input2()
-		if add == '3':
-			input3()	
+		add = input("Would you like to modify your data? (yes/no)")	
+		inputData(add)
+
+
+
 
 main()
