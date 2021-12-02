@@ -19,23 +19,22 @@ def input3():
 	list_json()
 
 def main():
-	while createUser == "1":
+	if createUser == "1":
 		input1()
-		break
 	
-	while createUser == "2":
+	elif createUser == "2":
 		input2()
-		break
 
-	while createUser == "3":
+	elif createUser == "3":
 		input3()
-		break
-	
-	add = input("Would you like to modify your data? Press 1 to add, 3 to list users, or 2 to close: ")	
-	while add == '2':
-		input2()
-	while add == '3':
-		input3()
-		break
-	
+
+	while createUser:
+		add = input("Would you like to modify your data? Press 1 to add, 3 to list users, or 2 to close: ")	
+		if add == '1':
+			input1()
+		if add == '2':
+			input2()
+		if add == '3':
+			input3()	
+
 main()
