@@ -21,9 +21,11 @@ def input3():
 def main():
 	while createUser == "1":
 		input1()
+		break
 	
 	while createUser == "2":
 		input2()
+		break
 
 	while createUser == "3":
 		input3()
