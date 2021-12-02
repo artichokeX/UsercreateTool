@@ -1,9 +1,10 @@
 from services import *
 from api import *
 from os.path import exists
-
+import os
 
 if not (exists('./data/dict.json')):
+	os.mkdir("data")
 	open('./data/dict.json', 'w').write('[]')
 
 
