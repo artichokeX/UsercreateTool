@@ -28,3 +28,17 @@ def write_json(new_data, filename='./data/dict.json'):
    with open(filename,'w') as file:
        # Join new_data with file_data inside emp_details
        file.write(new_data)
+
+def removeUser():
+    uuid = input('enter a uuid to remove: ')
+    users = json.load(open('./data/dict.json'))
+
+    # loop through data and remove user
+    for i in range(len(users)):
+        if users[i]['person']['uuid'] == uuid:
+            users.pop(i)
+            break
+
+    # update json with new data.
+    open('./data/dict.json', 'w').write(
+        json.dumps(users, sort_keys=True, indent=4))
