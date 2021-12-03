@@ -2,6 +2,7 @@ import json
 import api
 import uuid
 
+api = api.Api()
 class Services:
 	def addUser():
 		name = input("enter your name: ")
@@ -22,14 +23,14 @@ class Services:
 				}
 			}
 		}
-		update_json(data)
+		api.update_json(data)
 
-	def inputData(x):
-	    if x == "1" or x == 'yes' or x == 'y':
-		addUser()
-	    elif x == "2" or x == 'no' or x == 'n':
-		exit('Quitting Program')
-	    elif x == "3":
-		list_json()
-	    elif x == "d":
-        	removeUser()
+	def inputData(self, x):
+		if x == "1" or x == 'yes' or x == 'y':
+			Services.addUser()
+		elif x == "2" or x == 'no' or x == 'n':
+			exit('Quitting Program')
+		elif x == "3":
+			api.list_json()
+		elif x == "d":
+			api.removeUser()
